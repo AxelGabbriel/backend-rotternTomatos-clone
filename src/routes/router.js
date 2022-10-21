@@ -11,12 +11,18 @@ const reseña = require('../controllers/reseña')
 
 
 
+//rutas usuario
+router.put( '/modificar/:id_usuario',)
+router.get('/buscar-usuario/:id_usuario',)
+router.get('/buscar-nombre/:nombre',)
+
 //registro y login
 router.post('/registro',usuario.register)
 router.post('/login', passportAuth)
 router.get('/perfil',(req,res)=>{
     res.send('perfil')
 })
+
 
 //rutas de likes
 router.get('/like/:id_reseña',like.buscar)

@@ -18,6 +18,7 @@ const crearusuario= async(req,res)=>{
     
 const  { 
      username,
+     bio,
      correo,
      nombre,                             
      contraseña,
@@ -27,8 +28,8 @@ const  {
       if(contraseña===verificarclave){
 
      const passwordencriptado = await helpers.encryptPassword(contraseña)
-      const result= await pool.query('INSERT INTO usuario(username,correo,nombre,contraseña) VALUES($1,$2,$3,$4)', [
-     username,correo,nombre,passwordencriptado ])
+      const result= await pool.query('INSERT INTO usuario(username,bio,correo,nombre,contraseña) VALUES($1,$2,$3,$4,$5)', [
+     username,bio,correo,nombre,passwordencriptado ])
       console.log(result)
       res.json(result.rows)
 
@@ -61,12 +62,35 @@ const  {
       res.json(response.rows)
   
   } 
+    //rutas usuario busqueda y demas
+    
+   const buscarnombreusuario= async(req,res)=>{
+   const nombre =req.params.nombre
+   const response=await pool.query('SELECT* FROM usuario WHERE  nombre=$1',[nombre])
+   console.log(response);
+   res.json(response.rows)
+} 
+   const buscaridusuario= async(req,res)=>{
+   const id_usuario =req.params.id_usuario
+   const response=await pool.query('SELECT* FROM usuario WHERE  id_usuario=$1',[id_usuario])
+   console.log(response);
+   res.json(response.rows)
+  }   
 
+  const editarusuario=async(req,res)=>{
+    
+    const {username,bio,correo,nombre,contraseña, id_usuario}= req.body
+    const response= await pool.query('UPDATE usuario SET username= $1 ,bio=$2, correo=$3 ,nombre=$4,contraseña=$5 WHERE id_usuario=$6',[
+        username,bio,correo,nombre,contraseña, id_usuario
+    ])
+
+    console.log(response)
+    res.json(response.rows)
+}
 
     module.exports={
          crearusuario,
-        crearlike,
-        buscarlike,
-        borrarlike
+        crearlike,buscarlike,borrarlike,
+        buscarnombreusuario, buscaridusuario,editarusuario
         
      }
