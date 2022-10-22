@@ -8,7 +8,7 @@ const  {passportAuth}  = require('../middlewares')
 const like = require('../controllers/like')
 const coment = require('../controllers/comentario')
 const reseña = require('../controllers/reseña')
-const { comentario } = require('../database')
+
 
 
 
