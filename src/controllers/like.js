@@ -1,18 +1,7 @@
 const like = {}
 const bd = require('../database')
 
-like.crear= (req,res)=>{
-    try{
-    bd.crearlike(req,res);
-   
-   
-    }catch(e){
-   
-       console.log(e);
-    }
-      
-      
-   }
+
 
    like.crear= (req,res)=>{
     try{
