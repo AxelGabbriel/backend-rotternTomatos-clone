@@ -108,7 +108,7 @@ const crearreseña= async(req,res)=>{
 
       const buscaridreseña= async(req,res)=>{
         const id_resena =req.params.id_resena
-        const response=await pool.query('SELECT* FROM reseña WHERE  id_reseña=$1',[id_resena])
+        const response=await pool.query('SELECT* FROM reseña WHERE  id_resena=$1',[id_resena])
         console.log(response);
         res.json(response.rows)
        }   
@@ -116,7 +116,7 @@ const crearreseña= async(req,res)=>{
 
        const borrarreseña= async(req,res)=>{
         const id_resena =req.params.id_resena
-        const response=await pool.query('DELETE FROM reseña WHERE id_reseña=$1',[id_resena])
+        const response=await pool.query('DELETE FROM reseña WHERE id_resena=$1',[id_resena])
         console.log(response);
         res.json(response.rows)
     
@@ -125,7 +125,7 @@ const crearreseña= async(req,res)=>{
     const editarreseña=async(req,res)=>{
     
       const {pelicula,contenido,fecha,puntaje}= req.body
-      const response= await pool.query('UPDATE reseña SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4',[
+      const response= await pool.query('UPDATE resena SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4',[
           pelicula,contenido,fecha,puntaje
       ])
   
