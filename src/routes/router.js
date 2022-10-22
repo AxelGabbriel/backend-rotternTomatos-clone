@@ -30,14 +30,13 @@ router.get('/like/:id_reseña',like.buscar)
 router.post('/like-crear',like.crear)
 router.delete('/like-borrar/:id_reseña',like.borrar)
 
-//rutas de comentarios
-router.post('/comentario',)
+
 
 //rutas de reseña
-router.post('/reseña-crear',reseña.crear)
-router.get('/reseña-buscar/:id_reseña',reseña.buscar)
-router.delete('/reseña-borrar/:id_reseña',reseña.borrar)
-router.put('/reseña-editar',reseña.editar)
+router.post('/resena-crear',reseña.crear)
+router.get('/resena-buscar/:id_reseña',reseña.buscar)
+router.delete('/resena-borrar/:id_reseña',reseña.borrar)
+router.put('/resena-editar',reseña.editar)
 
 //rutas de comentario
 router.post('/comentario-crear',coment.crear)
