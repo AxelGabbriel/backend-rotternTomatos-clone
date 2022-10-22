@@ -40,24 +40,24 @@ const  {
 
     //crear like funcion
     const crearlike=async (req,res)=>{
-      const {like_id,id_reseña} = req.body
-      const response = await pool.query('INSERT INTO liked(like_id,id_reseña) VALUES($1,$2)',[
-          like_id,id_reseña])
+      const {like_id,id_resena} = req.body
+      const response = await pool.query('INSERT INTO liked(like_id,id_resena) VALUES($1,$2)',[
+          like_id,id_resena])
         console.log(response);
         res.json(response.rows)
    }
 
    //funcion buscar like
    const buscarlike=async(req,res)=>{
-    const id_reseña=req.params.id_reseña
-    const response= await pool.query('SELECT * FROM liked WHERE id_reseña=$1',[id_reseña])
+    const id_resena=req.params.id_resena
+    const response= await pool.query('SELECT * FROM liked WHERE id_resena=$1',[id_resena])
     console.log(response)
     res.json(response.rowcount);
 }
     //borrar like 
     const borrarlike= async(req,res)=>{
-      const id_reseña =req.params.id_reseña
-      const response=await pool.query('DELETE FROM liked WHERE id_reseña=$1',[id_reseña])
+      const id_resena =req.params.id_resena
+      const response=await pool.query('DELETE FROM liked WHERE id_resena=$1',[id_resena])
       console.log(response);
       res.json(response.rows)
   
