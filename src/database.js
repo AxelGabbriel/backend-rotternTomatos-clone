@@ -87,10 +87,90 @@ const  {
     console.log(response)
     res.json(response.rows)
 }
+ //rutas reseña
+const crearreseña= async(req,res)=>{
+    
+  const  { 
+       id_usuario,
+       pelicula,
+       contenido,
+       fecha,
+       puntaje
+        }= req.body;
+
+        const result= await pool.query('INSERT INTO reseña(id_usuario,pelicula,contenido,fecha,puntaje) VALUES($1,$2,$3,$4,$5)', [
+       id_usuario,pelicula,contenido,fecha,puntaje ])
+        console.log(result)
+        res.json(result.rows)
+  
+        
+      }
+
+      const buscaridreseña= async(req,res)=>{
+        const id_reseña =req.params.id_reseña
+        const response=await pool.query('SELECT* FROM reseña WHERE  id_reseña=$1',[id_reseña])
+        console.log(response);
+        res.json(response.rows)
+       }   
+
+
+       const borrarreseña= async(req,res)=>{
+        const id_reseña =req.params.id_reseña
+        const response=await pool.query('DELETE FROM reseña WHERE id_reseña=$1',[id_reseña])
+        console.log(response);
+        res.json(response.rows)
+    
+    } 
+
+    const editarreseña=async(req,res)=>{
+    
+      const {pelicula,contenido,fecha,puntaje}= req.body
+      const response= await pool.query('UPDATE reseña SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4',[
+          pelicula,contenido,fecha,puntaje
+      ])
+  
+      console.log(response)
+      res.json(response.rows)
+  }
+      //rutas comentario
+      const comentario= async(req,res)=>{
+    
+        const  { 
+                id_comentario,
+                fecha,
+                comentario,
+                 id_usuario
+             
+              }= req.body;
+      
+              const result= await pool.query('INSERT INTO comentario(id_comentario,fecha,comentario,id_usuario) VALUES($1,$2,$3,$4)', [
+             id_comentario,fecha,comentario,id_usuario ])
+              console.log(result)
+              res.json(result.rows)
+        
+              
+            }
+
+            const buscarcomentario= async(req,res)=>{
+              const id_comentario =req.params.id_comentario
+              const response=await pool.query('SELECT* FROM comentario WHERE  id_comentario=$1',[id_comentario])
+              console.log(response);
+              res.json(response.rows)
+             }  
+
+             const borrarcomentario= async(req,res)=>{
+              const id_comentario =req.params.id_comentario
+              const response=await pool.query('DELETE FROM comentario WHERE id_comentario=$1',[id_comentario])
+              console.log(response);
+              res.json(response.rows)
+          
+          } 
+
 
     module.exports={
          crearusuario,
         crearlike,buscarlike,borrarlike,
-        buscarnombreusuario, buscaridusuario,editarusuario
-        
+        buscarnombreusuario, buscaridusuario,editarusuario,
+        crearreseña, buscaridreseña,borrarreseña,editarreseña,
+        comentario,buscarcomentario,borrarcomentario
      }
