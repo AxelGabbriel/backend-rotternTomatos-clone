@@ -107,16 +107,16 @@ const crearreseña= async(req,res)=>{
       }
 
       const buscaridreseña= async(req,res)=>{
-        const id_reseña =req.params.id_reseña
-        const response=await pool.query('SELECT* FROM reseña WHERE  id_reseña=$1',[id_reseña])
+        const id_resena =req.params.id_resena
+        const response=await pool.query('SELECT* FROM reseña WHERE  id_reseña=$1',[id_resena])
         console.log(response);
         res.json(response.rows)
        }   
 
 
        const borrarreseña= async(req,res)=>{
-        const id_reseña =req.params.id_reseña
-        const response=await pool.query('DELETE FROM reseña WHERE id_reseña=$1',[id_reseña])
+        const id_resena =req.params.id_resena
+        const response=await pool.query('DELETE FROM reseña WHERE id_reseña=$1',[id_resena])
         console.log(response);
         res.json(response.rows)
     
