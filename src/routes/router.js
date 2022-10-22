@@ -26,7 +26,7 @@ router.get('/perfil',(req,res)=>{
 
 
 //rutas de likes
-router.get('/like/:id_reseña',like.buscar)
+router.get('/like/:id_resena',like.buscar)
 router.post('/like-crear',like.crear)
 router.delete('/like-borrar/:id_reseña',like.borrar)
 
@@ -34,8 +34,8 @@ router.delete('/like-borrar/:id_reseña',like.borrar)
 
 //rutas de reseña
 router.post('/resena-crear',reseña.crear)
-router.get('/resena-buscar/:id_reseña',reseña.buscar)
-router.delete('/resena-borrar/:id_reseña',reseña.borrar)
+router.get('/resena-buscar/:id_resena',reseña.buscar)
+router.delete('/resena-borrar/:id_resena',reseña.borrar)
 router.put('/resena-editar',reseña.editar)
 
 //rutas de comentario
