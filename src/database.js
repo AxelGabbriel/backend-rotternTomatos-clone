@@ -49,9 +49,9 @@ const  {
    //funcion buscar like
    const buscarlike=async(req,res)=>{
     const id_resena=req.params.id_resena
-    const response= await pool.query('select count(like_id) from liked where id_resena=2',[id_resena])
-    console.log(response.rowCount);
-    res.json(response.rowCount);
+    const response= await pool.query('select count(like_id) from liked where id_resena=$1',[id_resena])
+    console.log(response);
+    res.json(response);
 }
     //borrar like 
     const borrarlike= async(req,res)=>{
