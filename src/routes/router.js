@@ -37,6 +37,8 @@ router.post('/resena-crear',reseña.crear)
 router.get('/resena-buscar/:id_resena',reseña.buscar)
 router.delete('/resena-borrar/:id_resena',reseña.borrar)
 router.put('/resena-editar',reseña.editar)
+router.get('/resena-peli/:pelicula',reseña.buscarpeli)
+
 
 //rutas de comentario
 router.post('/comentario-crear',coment.crear)

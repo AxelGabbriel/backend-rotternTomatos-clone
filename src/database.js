@@ -1,5 +1,4 @@
 const {Pool}= require('pg');
-const like = require('./controllers/like');
 const helpers= require('./helpers')
 const config={
     
@@ -166,11 +165,23 @@ const crearreseña= async(req,res)=>{
           
           } 
 
+       //funcion para buscar reseñas de una pelicula
+       const buscarpelicularesena= async(req,res)=>{
+        const pelicula =req.params.pelicula
+        const response=await pool.query('SELECT* FROM resena WHERE pelicula=$1',[pelicula])
+        console.log(response);
+        res.json(response.rows)
+       }   
+
+
+
+
 
     module.exports={
          crearusuario,
         crearlike,buscarlike,borrarlike,
         buscarnombreusuario, buscaridusuario,editarusuario,
-        crearreseña, buscaridreseña,borrarreseña,editarreseña,
+        crearreseña, buscaridreseña,borrarreseña,editarreseña,buscarpelicularesena,
         comentario,buscarcomentario,borrarcomentario
+
      }
