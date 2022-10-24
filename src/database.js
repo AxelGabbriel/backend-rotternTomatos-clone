@@ -39,9 +39,9 @@ const  {
 
     //crear like funcion
     const crearlike=async (req,res)=>{
-      const {like_id,id_resena} = req.body
-      const response = await pool.query('INSERT INTO liked(like_id,id_resena) VALUES($1,$2)',[
-          like_id,id_resena])
+      const id_resena = req.body
+      const response = await pool.query('INSERT INTO liked(id_resena) VALUES($1,$2)',[
+          id_resena])
         console.log(response);
         res.json(response.rows)
    }
