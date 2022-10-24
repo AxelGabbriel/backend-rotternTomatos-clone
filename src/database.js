@@ -123,9 +123,9 @@ const crearreseña= async(req,res)=>{
 
     const editarreseña=async(req,res)=>{
     
-      const {pelicula,contenido,fecha,puntaje}= req.body
-      const response= await pool.query('UPDATE resena SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4',[
-          pelicula,contenido,fecha,puntaje
+      const {pelicula,contenido,fecha,puntaje,id_resena}= req.body
+      const response= await pool.query('UPDATE resena SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4 where id_resena=$5',[
+          pelicula,contenido,fecha,puntaje,id_resena
       ])
   
       console.log(response)
