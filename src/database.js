@@ -49,7 +49,7 @@ const  {
    //funcion buscar like
    const buscarlike=async(req,res)=>{
     const id_resena=req.params.id_resena
-    const response= await pool.query('SELECT * FROM liked WHERE id_resena=$1',[id_resena])
+    const response= await pool.query('select id_usuario, count(*)as likes from liked where id_resena=$1 group by id_usuario',[id_resena])
     console.log(response);
     res.json(response.rowcount);
 }
