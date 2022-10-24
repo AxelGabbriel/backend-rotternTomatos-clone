@@ -13,9 +13,9 @@ const reseña = require('../controllers/reseña')
 
 
 //rutas usuario
-router.put( '/modificar/:id_usuario',usuario.editar)
+router.put( '/modificar',usuario.editar)
 router.get('/buscar-usuario/:id_usuario',usuario.buscarid)
-router.get('/buscar-nombre/:nombre',usuario.buscarnombre)
+router.get('/buscar-nombre/:username',usuario.buscarnombre)
 
 //registro y login
 router.post('/registro',usuario.register)

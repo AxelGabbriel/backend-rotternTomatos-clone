@@ -64,8 +64,8 @@ const  {
     //rutas usuario busqueda y demas
     
    const buscarnombreusuario= async(req,res)=>{
-   const nombre =req.params.nombre
-   const response=await pool.query('SELECT* FROM usuario WHERE  nombre=$1',[nombre])
+   const username =req.params.username
+   const response=await pool.query('SELECT* FROM usuario WHERE  username=$1',[username])
    console.log(response);
    res.json(response.rows)
 } 
