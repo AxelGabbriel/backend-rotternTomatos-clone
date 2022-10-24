@@ -50,8 +50,8 @@ const  {
    const buscarlike=async(req,res)=>{
     const id_resena=req.params.id_resena
     const response= await pool.query('SELECT * FROM liked WHERE id_resena=$1',[id_resena])
-    const re=response.rowCount[0]
-    res.json(re.like_id);
+    console.log(response);
+    res.json(response.rowcount);
 }
     //borrar like 
     const borrarlike= async(req,res)=>{
