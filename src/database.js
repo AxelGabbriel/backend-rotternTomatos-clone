@@ -90,15 +90,16 @@ const  {
 const crearreseña= async(req,res)=>{
     
   const  { 
-       id_usuario,
+       
        pelicula,
        contenido,
        fecha,
-       puntaje
+       puntaje,
+       username
         }= req.body;
 
-        const result= await pool.query('INSERT INTO resena(id_usuario,pelicula,contenido,fecha,puntaje) VALUES($1,$2,$3,$4,$5)', [
-       id_usuario,pelicula,contenido,fecha,puntaje ])
+        const result= await pool.query('INSERT INTO resena(pelicula,contenido,fecha,puntaje,username) VALUES($1,$2,$3,$4,$5)', [
+       pelicula,contenido,fecha,puntaje,username ])
         console.log(result)
         res.json(result.rows)
   
@@ -106,8 +107,8 @@ const crearreseña= async(req,res)=>{
       }
 
       const buscaridreseña= async(req,res)=>{
-        const id_resena =req.params.id_resena
-        const response=await pool.query('SELECT* FROM resena WHERE  id_resena=$1',[id_resena])
+        const username =req.params.username
+        const response=await pool.query('SELECT* FROM resena WHERE  username=$1',[username])
         console.log(response);
         res.json(response.rows)
        }   
@@ -123,9 +124,9 @@ const crearreseña= async(req,res)=>{
 
     const editarreseña=async(req,res)=>{
     
-      const {pelicula,contenido,fecha,puntaje,id_resena}= req.body
-      const response= await pool.query('UPDATE resena SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4 where id_resena=$5',[
-          pelicula,contenido,fecha,puntaje,id_resena
+      const {pelicula,contenido,fecha,puntaje,username}= req.body
+      const response= await pool.query('UPDATE resena SET pelicula= $1 ,contenido=$2, fecha=$3 ,puntaje=$4 where username=$5',[
+          pelicula,contenido,fecha,puntaje,username
       ])
   
       console.log(response)
