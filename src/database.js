@@ -143,7 +143,7 @@ const crearreseña= async(req,res)=>{
       res.json(response.rows)
   }
       //rutas comentario
-      const comentario= async(req,res)=>{
+      const comentarios= async(req,res)=>{
     
         const  { 
                 id_resena,
@@ -193,6 +193,6 @@ const crearreseña= async(req,res)=>{
         crearlike,buscarlike,borrarlike,
         buscarnombreusuario, buscaridusuario,editarusuario,
         crearreseña, buscaridreseña,borrarreseña,editarreseña,buscarpelicularesena,
-        comentario,buscarcomentario,borrarcomentario,buscaridreseña2
+        comentarios,buscarcomentario,borrarcomentario,buscaridreseña2
 
      }
