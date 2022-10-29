@@ -79,8 +79,9 @@ const  {
   const editarusuario=async(req,res)=>{
     
     const {username,bio,correo,nombre,contraseña, id_usuario}= req.body
-    const response= await pool.query('UPDATE usuario SET username= $1 ,bio=$2, correo=$3 ,nombre=$4,contraseña=$5 WHERE id_usuario=$6',[
-        username,bio,correo,nombre,contraseña, id_usuario
+    const newcontraseña=helpers.encryptPassword(contraseña)
+    const response= await pool.query('UPDATE usuario SET username=$1 ,bio=$2, correo=$3 ,nombre=$4,contraseña=$5 WHERE id_usuario=$6',[
+        username,bio,correo,nombre,newcontraseña, id_usuario
     ])
 
     console.log(response)
@@ -136,15 +137,15 @@ const crearreseña= async(req,res)=>{
       const comentario= async(req,res)=>{
     
         const  { 
-                id_comentario,
+                id_resena,
                 fecha,
                 comentario,
-                 id_usuario
+                 username
              
               }= req.body;
       
-              const result= await pool.query('INSERT INTO comentario(id_comentario,fecha,comentario,id_usuario) VALUES($1,$2,$3,$4)', [
-             id_comentario,fecha,comentario,id_usuario ])
+              const result= await pool.query('INSERT INTO comentario(id_resena,fecha,comentario,username) VALUES($1,$2,$3,$4)', [
+             id_resena,fecha,comentario,username ])
               console.log(result)
               res.json(result.rows)
         
