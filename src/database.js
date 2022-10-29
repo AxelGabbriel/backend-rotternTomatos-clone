@@ -115,6 +115,15 @@ const crearreseña= async(req,res)=>{
        }   
 
 
+       const buscaridreseña2= async(req,res)=>{
+        const id_resena =req.params.id_resena
+        const response=await pool.query('SELECT* FROM resena WHERE  id_resena=$1',[id_resena])
+        console.log(response);
+        res.json(response.rows)
+       }   
+
+
+
        const borrarreseña= async(req,res)=>{
         const id_resena =req.params.id_resena
         const response=await pool.query('DELETE FROM resena WHERE id_resena=$1',[id_resena])
@@ -184,6 +193,6 @@ const crearreseña= async(req,res)=>{
         crearlike,buscarlike,borrarlike,
         buscarnombreusuario, buscaridusuario,editarusuario,
         crearreseña, buscaridreseña,borrarreseña,editarreseña,buscarpelicularesena,
-        comentario,buscarcomentario,borrarcomentario
+        comentario,buscarcomentario,borrarcomentario,buscaridreseña2
 
      }

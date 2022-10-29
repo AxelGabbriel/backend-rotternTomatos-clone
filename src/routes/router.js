@@ -35,6 +35,7 @@ router.delete('/like-borrar/:id_reseña',like.borrar)
 //rutas de reseña
 router.post('/resena-crear',reseña.crear)
 router.get('/resena-buscar/:username',reseña.buscar)
+router.get('/resena-id/:id_resena',reseña.buscarid)
 router.delete('/resena-borrar/:id_resena',reseña.borrar)
 router.put('/resena-editar',reseña.editar)
 router.get('/resena-peli/:pelicula',reseña.buscarpeli)
