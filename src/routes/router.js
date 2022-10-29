@@ -39,7 +39,7 @@ router.get('/resena-id/:id_resena',reseña.buscarid)
 router.delete('/resena-borrar/:id_resena',reseña.borrar)
 router.put('/resena-editar',reseña.editar)
 router.get('/resena-peli/:pelicula',reseña.buscarpeli)
-
+router.get('/promedio/:pelicula',reseña.promedio)
 
 //rutas de comentario
 router.post('/comentario-crear',coment.crear)

@@ -20,5 +20,7 @@ reseña.buscarpeli= (req,res)=>{
 reseña.buscarid= (req,res)=>{
     try{bd.buscaridreseña2(req,res);}catch(e){console.log(e); }    
 }
-
+reseña.promedio= (req,res)=>{
+    try{bd.promedio(req,res);}catch(e){console.log(e); }    
+}
 module.exports= reseña
