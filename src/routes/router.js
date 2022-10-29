@@ -42,7 +42,7 @@ router.get('/resena-peli/:pelicula',reseña.buscarpeli)
 
 //rutas de comentario
 router.post('/comentario-crear',coment.crear)
-router.get('/comentario-buscar/:id_comentario',coment.buscar)
+router.get('/comentario-buscar/:id_resena',coment.buscar)
 router.delete('/comentario-borrar/:id_comentario',coment.borrar)
 
 module.exports = router

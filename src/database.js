@@ -153,8 +153,8 @@ const crearreseña= async(req,res)=>{
             }
 
             const buscarcomentario= async(req,res)=>{
-              const id_comentario =req.params.id_comentario
-              const response=await pool.query('SELECT* FROM comentario WHERE  id_comentario=$1',[id_comentario])
+              const id_resena =req.params.id_resena
+              const response=await pool.query('SELECT* FROM comentario WHERE  id_resena=$1',[id_resena])
               console.log(response);
               res.json(response.rows)
              }  
