@@ -153,7 +153,7 @@ const crearreseña= async(req,res)=>{
              
               }= req.body;
       
-              const result= await pool.query('INSERT INTO comentario(id_resena,fecha,comentario,username) VALUES($1,$2,$3,$4)', [
+             const result= await pool.query('INSERT INTO comentario(id_resena,fecha,comentario,username) VALUES($1,$2,$3,$4)', [
              id_resena,fecha,comentario,username ])
               console.log(result)
               res.json(result.rows)
