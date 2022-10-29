@@ -18,7 +18,7 @@ reseña.buscarpeli= (req,res)=>{
     try{bd.buscarpelicularesena(req,res);}catch(e){console.log(e); }    
 }
 reseña.buscarid= (req,res)=>{
-    try{bd.buscaridreseña2;}catch(e){console.log(e); }    
+    try{bd.buscaridreseña2(req,res);}catch(e){console.log(e); }    
 }
 
 module.exports= reseña
