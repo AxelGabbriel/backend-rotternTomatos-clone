@@ -188,7 +188,7 @@ const crearreseña= async(req,res)=>{
       const promedio=async(req,res)=>{
         const pelicula=req.params.pelicula
         const response= await pool.query('select count(puntaje) from resena where pelicula=$1',[pelicula])
-        const datos=response.rows/5
+        const datos=response/5
         console.log(response)
         res.json(datos);
     }
