@@ -78,10 +78,9 @@ const  {
 
   const editarusuario=async(req,res)=>{
     
-    const {username,bio,correo,nombre,contraseña, id_usuario}= req.body
-    const newcontraseña=helpers.encryptPassword(contraseña)
-    const response= await pool.query('UPDATE usuario SET username=$1 ,bio=$2, correo=$3 ,nombre=$4,contraseña=$5 WHERE id_usuario=$6',[
-        username,bio,correo,nombre,newcontraseña, id_usuario
+    const {username,bio,correo,nombre,id_usuario}= req.body
+    const response= await pool.query('UPDATE usuario SET username=$1 ,bio=$2, correo=$3 ,nombre=$4 WHERE id_usuario=$5',[
+        username,bio,correo,nombre, id_usuario
     ])
 
     console.log(response)
